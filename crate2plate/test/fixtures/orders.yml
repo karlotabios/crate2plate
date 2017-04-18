@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount_due: 9.99
+  mode_of_payment: MyString
+  status: MyString
+  date_ordered: 2017-04-18 19:19:00
+  comments: MyString
+
+two:
+  amount_due: 9.99
+  mode_of_payment: MyString
+  status: MyString
+  date_ordered: 2017-04-18 19:19:00
+  comments: MyString

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount_of_payment: 9.99
+  date_settled: 2017-04-18 19:19:20
+
+two:
+  amount_of_payment: 9.99
+  date_settled: 2017-04-18 19:19:20
