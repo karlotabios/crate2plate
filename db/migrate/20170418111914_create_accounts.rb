@@ -18,7 +18,11 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.string :delivery_city
       t.decimal :outstanding_balance
       t.string :account_type
-
+      t.string :email
+      t.string :username
+      t.string :password
+      t.string :business_name
+      
       t.timestamps
     end
   end

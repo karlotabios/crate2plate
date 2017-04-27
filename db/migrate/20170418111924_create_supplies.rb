@@ -3,6 +3,7 @@ class CreateSupplies < ActiveRecord::Migration[5.0]
     create_table :supplies do |t|
       t.string :quantity
       t.datetime :date_of_supply
+      t.references :product
 
       t.timestamps
     end
