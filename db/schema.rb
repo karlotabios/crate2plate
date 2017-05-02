@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502130840) do
+ActiveRecord::Schema.define(version: 20170502164510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.decimal  "quantity"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "orders_id"
+    t.integer  "products_id"
+    t.index ["orders_id"], name: "index_order_lines_on_orders_id", using: :btree
+    t.index ["products_id"], name: "index_order_lines_on_products_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -62,6 +66,10 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.string   "comments"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "accounts_id"
+    t.integer  "delivery_id"
+    t.index ["accounts_id"], name: "index_orders_on_accounts_id", using: :btree
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
   end
 
   create_table "payment_histories", force: :cascade do |t|
@@ -69,6 +77,10 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.datetime "date_settled"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "orders_id"
+    t.integer  "accounts_id"
+    t.index ["accounts_id"], name: "index_payment_histories_on_accounts_id", using: :btree
+    t.index ["orders_id"], name: "index_payment_histories_on_orders_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -83,6 +95,8 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.decimal  "total_amount_due"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "orders_id"
+    t.index ["orders_id"], name: "index_receipts_on_orders_id", using: :btree
   end
 
   create_table "supplies", force: :cascade do |t|
@@ -90,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.datetime "date_of_supply"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "products_id"
+    t.index ["products_id"], name: "index_supplies_on_products_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -127,4 +143,12 @@ ActiveRecord::Schema.define(version: 20170502130840) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "order_lines", "orders", column: "orders_id"
+  add_foreign_key "order_lines", "products", column: "products_id"
+  add_foreign_key "orders", "accounts", column: "accounts_id"
+  add_foreign_key "orders", "deliveries"
+  add_foreign_key "payment_histories", "accounts", column: "accounts_id"
+  add_foreign_key "payment_histories", "orders", column: "orders_id"
+  add_foreign_key "receipts", "orders", column: "orders_id"
+  add_foreign_key "supplies", "products", column: "products_id"
 end
