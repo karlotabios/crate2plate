@@ -1,0 +1,130 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20170502130840) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
+    t.integer  "billing_unit_number"
+    t.string   "billing_street"
+    t.string   "billing_village"
+    t.string   "billing_building"
+    t.string   "billing_landmark"
+    t.string   "billing_city"
+    t.integer  "delivery_unit_number"
+    t.string   "delivery_street"
+    t.string   "delivery_village"
+    t.string   "delivery_building"
+    t.string   "delivery_landmark"
+    t.string   "delivery_city"
+    t.decimal  "outstanding_balance"
+    t.string   "account_type"
+    t.string   "email"
+    t.string   "username"
+    t.string   "password"
+    t.string   "business_name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.datetime "date_delivered"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "order_lines", force: :cascade do |t|
+    t.decimal  "subtotal_amount"
+    t.decimal  "quantity"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "amount_due"
+    t.string   "mode_of_payment"
+    t.string   "status"
+    t.datetime "date_ordered"
+    t.string   "comments"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "payment_histories", force: :cascade do |t|
+    t.decimal  "amount_of_payment"
+    t.datetime "date_settled"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "product_name"
+    t.string   "category"
+    t.decimal  "price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.decimal  "total_amount_due"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string   "quantity"
+    t.datetime "date_of_supply"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                    default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "billing_unit_number"
+    t.string   "billing_street"
+    t.string   "billing_village"
+    t.string   "billing_building"
+    t.string   "billing_landmark"
+    t.string   "billing_city"
+    t.string   "delivery_unit_number"
+    t.string   "delivery_street"
+    t.string   "delivery_village"
+    t.string   "delivery_building"
+    t.string   "delivery_landmark"
+    t.string   "delivery_city"
+    t.decimal  "outstanding_balance"
+    t.string   "account_type",           limit: 1
+    t.string   "business_name"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+end
