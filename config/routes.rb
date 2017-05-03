@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+	get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root(to: "customers#index")
+  resources :orders
 
   # namespace :admin do
   # 	# basic CRUD for admin side. Will revise because it's not that simple sa flow ng website mismo

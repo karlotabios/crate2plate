@@ -39,8 +39,12 @@ gem 'jbuilder', '~> 2.5'
 # devise for authentication
 gem 'devise'
 
+gem 'better_errors'
+
 # simple_form for forms
 gem 'simple_form'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
