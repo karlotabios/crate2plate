@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-	get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
-  devise_for :users
+	#get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
+  devise_for :users, controllers: { sessions: "users/sessions", confirmations: "users/confirmations", registrations: "users/registrations", passwords: "users/passwords", unlocks: "users/unlocks",  }
   root(to: "customers#index")
   resources :orders
 
