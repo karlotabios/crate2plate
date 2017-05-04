@@ -3,14 +3,14 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
     create_table :accounts do |t|
       t.string :first_name
       t.string :last_name
-      t.int :phone_number
-      t.int :billing_unit_number
+      t.integer :phone_number
+      t.integer :billing_unit_number
       t.string :billing_street
       t.string :billing_village
       t.string :billing_building
       t.string :billing_landmark
       t.string :billing_city
-      t.int :delivery_unit_number
+      t.integer :delivery_unit_number
       t.string :delivery_street
       t.string :delivery_village
       t.string :delivery_building
