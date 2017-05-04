@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :orders
 
   # namespace :admin do
-  # 	# basic CRUD for admin side. Will revise because it's not that simple sa flow ng website mismo
   # 	resources :supplies
   # 	resources :orders
   # end

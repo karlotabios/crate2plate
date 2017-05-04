@@ -39,6 +39,10 @@ gem 'jbuilder', '~> 2.5'
 # devise for authentication
 gem 'devise'
 
+# gem for feeding shell code into the error screen
+gem 'binding_of_caller'
+
+# debugging gem
 gem 'better_errors'
 
 # simple_form for forms
