@@ -1,5 +1,5 @@
 ruby '2.3.3'
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -39,12 +39,19 @@ gem 'jbuilder', '~> 2.5'
 # devise for authentication
 gem 'devise'
 
+# gem for feeding shell code into the error screen
+gem 'binding_of_caller'
+
+# debugging gem
 gem 'better_errors'
 
 # simple_form for forms
 gem 'simple_form'
 
-
+# gem for those stupid css files that don't work bare naked
+gem 'font-awesome-rails'
+# gem 'bootstrap-sass'
+# gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
