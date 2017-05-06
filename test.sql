@@ -77,19 +77,19 @@ VALUES
 (6, 1200, 3, CURRENT_DATE, CURRENT_DATE, 2, 4);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 3, 1);
+(7, 300, 3, CURRENT_DATE, CURRENT_DATE, 3, 1);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 4, 1);
+(8, 300, 3, CURRENT_DATE, CURRENT_DATE, 4, 1);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 5, 1);
+(9, 300, 3, CURRENT_DATE, CURRENT_DATE, 5, 1);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 5, 1);
+(10, 300, 3, CURRENT_DATE, CURRENT_DATE, 5, 1);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 6, 1);
+(11, 300, 3, CURRENT_DATE, CURRENT_DATE, 6, 1);
 INSERT INTO order_lines (id, subtotal_amount, quantity, created_at, updated_at, orders_id, products_id)
 VALUES
-(3, 300, 3, CURRENT_DATE, CURRENT_DATE, 1, 1);
+(12, 300, 3, CURRENT_DATE, CURRENT_DATE, 1, 1);

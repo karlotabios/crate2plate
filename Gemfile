@@ -1,5 +1,5 @@
 ruby '2.3.3'
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -48,8 +48,10 @@ gem 'better_errors'
 # simple_form for forms
 gem 'simple_form'
 
-# gem for that stupid css file that doesn't work bare naked
-# gem 'font-awesome-rails'
+# gem for those stupid css files that don't work bare naked
+gem 'font-awesome-rails'
+# gem 'bootstrap-sass'
+# gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
