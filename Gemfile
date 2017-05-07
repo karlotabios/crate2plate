@@ -50,8 +50,6 @@ gem 'simple_form'
 
 # gem for those stupid css files that don't work bare naked
 gem 'font-awesome-rails'
-# gem 'bootstrap-sass'
-# gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
