@@ -27,6 +27,8 @@ development:
   pool: 5
   username: crate2plate
   password: password1
+  host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -89,3 +91,5 @@ production:
   database: crate2plate_production
   username: crate2plate
   password: <%= ENV['CRATE2PLATE_DATABASE_PASSWORD'] %>
+
+host: localhost

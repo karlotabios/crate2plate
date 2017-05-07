@@ -1,3 +1,83 @@
+<head>
+	<title>Crate2Plate</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<link rel="stylesheet" href="application.css.erb">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
 <%= render partial: "customer_navbar" %>
-<img src="https://scontent-sin6-2.xx.fbcdn.net/v/t31.0-8/s960x960/17635553_1615425878475477_4791122830644447844_o.jpg?oh=60e069bd6a0a14d3b2bcbf20f5d94cfa&oe=597B2F7B">
+<body>
+
+
+<%= render partial: "background" %>
+
+<div class="box first">
+	<table style="width: 100%; height: 100%; "">
+		<tr style="text-align: center">
+			<td >
+				
+				<%= image_tag("grapes-and-pear-on-a-platter.png", :class=>"img-responsive", :alt=>"")  %>
+				
+			</td>
+			<td >
+				
+				<%= image_tag("lightning-electric-energy.png", :class=>"img-responsive", :alt=>"")  %>
+				
+			</td>
+			<td >
+				
+				<%= image_tag("piggy-bank.png", :class=>"img-responsive", :alt=>"")  %>
+				
+			</td>
+		</tr>
+
+		<tr style="text-align: center">
+			<td >
+				
+				<h6>Freshest in the Market</h6>
+				
+			</td>
+			<td >
+				
+				<h6>Fast Delivery</h6>
+				
+			</td>
+			<td >
+				
+				<h6>Best Price in Town</h6>
+
+			</td>
+		</tr>
+
+		<tr style="text-align: center">
+			<td >
+				
+				<p>Imported non-tropical fruits and top-quality organic local produce</p>
+				
+			</td>
+			<td >
+				
+				<p>Guaranteed delivery within 48 hours</p>
+				
+			</td>
+			<td >
+				
+				
+					<p>Lower prices than your regular grocery</p>
+			</td>
+		</tr>
+	</table>
+
+			
+
+	</div><!--/.box-->
+
 <%= render partial: "customer_footer" %>
+</body>
