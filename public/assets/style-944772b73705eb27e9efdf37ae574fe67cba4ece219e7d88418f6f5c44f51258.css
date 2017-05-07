@@ -1,0 +1,515 @@
+/*
+	Author: ShapedTheme
+	Template: Cluster
+	Version: 1.0
+	URL: http://shapedtheme.com
+	*/
+/* IMPORT SECTION */
+@import url("http://fonts.googleapis.com/css?family=Raleway:200,300,600,700&subset=latin,latin-ext");
+/* BASIC STYLES */
+/* line 19, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+html, body {
+  height: 100%;
+}
+
+/* line 23, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+body {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.7857;
+  letter-spacing: 0.075em;
+  color: #333333;
+  background-color: #fff;
+}
+
+/* line 33, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+a {
+  color: #000;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 42, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+a:hover {
+  color: #000;
+}
+
+/* line 46, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+a, a:hover, a:active, a:focus, button:focus {
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+}
+
+/* line 52, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#st-preloader {
+  background: #FFF;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+/* line 62, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+p {
+  line-height: 1.5;
+}
+
+/* line 66, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+h2, h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* line 73, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+h1, h3, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 79, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+input, textarea {
+  outline: none;
+}
+
+/* line 83, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+label {
+  font-weight: 300;
+}
+
+/* line 87, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#pre-status,
+.preload-placeholder {
+  background-image: url(/assets/preloader.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40px;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+}
+
+/* line 100, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.preload-placeholder {
+  background: none;
+  left: 0;
+  margin: 0;
+  text-align: center;
+  top: 65%;
+}
+
+/* line 108, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-border {
+  width: 70%;
+  height: 1px;
+  display: block;
+  background-color: #000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 119, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.overlay {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* line 130, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#h {
+  background: url(/assets/fruits-bg.jpg) no-repeat center center;
+  background-size: 100%;
+  background-color: #fff;
+  padding-top: 20px;
+  text-align: center;
+  background-attachment: relative;
+  background-position: center center;
+  width: 100%;
+  height: 80%;
+  color: #21437E;
+}
+
+/* line 143, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#order {
+  width: 70%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #e9e9e9;
+  border-radius: 10px;
+}
+
+/* line 153, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#details {
+  width: 70%;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #e9e9e9;
+  border-radius: 10px;
+}
+
+/* line 163, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 168, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+/* line 173, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.col-botbordered {
+  border-bottom: 1px solid #ccc;
+}
+
+/* line 177, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.col-bordered {
+  border-right: 1px solid #ccc;
+  margin-right: 30px;
+}
+
+/* BUTTONS */
+/* line 184, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-send {
+  background-color: #383838;
+  border-radius: 10;
+  border: 0;
+  color: #fff;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+/* line 201, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-send:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 206, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-conf {
+  background-color: #FFD333;
+  border-radius: 10;
+  border: 0;
+  color: #383838;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 222, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-conf:hover {
+  background-color: #e8bf2c;
+  color: #383838;
+}
+
+/* line 227, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-readmore {
+  background-color: #383838;
+  border-radius: 0;
+  border: 0;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 242, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.btn-readmore:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 247, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.line-separator {
+  height: 1px;
+  background: #717171;
+  border-bottom: 1px solid #313030;
+  display: inline;
+}
+
+/* HEADER */
+/* line 259, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#header .navbar {
+  min-height: 80px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* line 265, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* line 270, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar ul {
+  margin-top: 15px;
+}
+
+/* line 274, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar ul li a {
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0;
+  margin: 14px;
+}
+
+/* line 281, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar ul li a:hover,
+.st-navbar ul li a:focus {
+  background-color: transparent;
+  color: #000;
+}
+
+/* line 287, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar .navbar-header {
+  margin-top: 25px;
+}
+
+/* line 291, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar .navbar-toggle .icon-bar {
+  background-color: #000;
+}
+
+/* line 295, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.st-navbar .navbar-toggle {
+  margin-top: 7px;
+  margin-right: 25px;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* FEATURE */
+/* line 306, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  position: relative;
+}
+
+/* line 313, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.box.first {
+  margin-top: -5%;
+  border-radius: 5px 5px 5px 5px;
+  width: 55%;
+  height: 16%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: -120px;
+}
+
+/* line 322, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.box h6 {
+  text-align: center;
+}
+
+/* line 325, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.box p {
+  font-size: 10px;
+  margin-top: -5px;
+  text-align: center;
+}
+
+/* PRODUCTS */
+/* line 336, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#products {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+/* line 341, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#orders {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+/* line 346, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin {
+  margin-top: 30px;
+}
+
+/* line 350, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin:hover {
+  box-shadow: 0px 0px 18px #ddd;
+}
+
+/* line 354, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-image {
+  position: relative;
+  padding-top: 10px;
+}
+
+/* line 359, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-info {
+  padding: 10px;
+}
+
+/* line 363, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-info h4 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* line 368, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin .product-add {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  -moz-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+/* line 388, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin:hover .product-add {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+/* line 397, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin .product-add a {
+  position: relative;
+  font-size: 25px;
+  color: #fff;
+  top: 40%;
+}
+
+/* line 404, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.product-margin:hover .product-add a {
+  margin: 6px;
+}
+
+/* CONTACT */
+/* line 412, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#contact {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+/* line 417, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.contact-info .contact-content {
+  margin-bottom: 30px;
+}
+
+/* line 421, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.contact-info p {
+  margin-bottom: 20px;
+}
+
+/* line 425, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.contact-info p i {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* line 432, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="password"] {
+  border: 1px solid #E8E8E8;
+  padding: 8px 14px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* line 441, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.contact-form textarea {
+  border: 1px solid #E8E8E8;
+  padding: 8px 14px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+/* line 453, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#footer {
+  background-color: #262626;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* line 460, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#footer a {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* line 463, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+#footer a:hover {
+  color: #fff;
+}
+
+/* line 467, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.footer-social-icons {
+  text-align: right;
+}
+
+/* line 471, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.footer-social-icons a {
+  margin: 0 5px;
+  font-size: 16px;
+}
+
+/* line 476, D:/Users64/Karlo/Desktop/COLLEGE/3rd Year/2nd Sem/MIS 122/Crate2Plate/Application/crate2plate/app/assets/stylesheets/style.scss.erb */
+.footer-social-icons span {
+  margin-right: 10px;
+}
