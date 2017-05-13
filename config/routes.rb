@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-	#get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
   devise_for :users, controllers: { sessions: "users/sessions", confirmations: "users/confirmations", registrations: "users/registrations", passwords: "users/passwords", unlocks: "users/unlocks",  }
-  root(to: "customers#index")
+  root(to: "pages#index")
+  get("/admin", to: "admin/pages#index")
   resources :orders
 
-  # namespace :admin do
-  # 	resources :supplies
-  # 	resources :orders
-  # end
+  namespace :admin do
+  	resources :supplies
+  	resources :orders
+  	get("/customers", to: "admin/users#list")
+  end
 end

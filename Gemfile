@@ -31,13 +31,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # devise for authentication
 gem 'devise'
+
+# this stupid gem that you need with devise
+gem 'omniauth'
 
 # gem for feeding shell code into the error screen
 gem 'binding_of_caller'
@@ -48,16 +51,8 @@ gem 'better_errors'
 # simple_form for forms
 gem 'simple_form'
 
-<<<<<<< HEAD
-
-gem 'font-awesome-rails'
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-
-=======
 # gem for those stupid css files that don't work bare naked
 # gem 'font-awesome-rails'
->>>>>>> 033b1eb14fdd444f76f13de3d6dc52735266b9fc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

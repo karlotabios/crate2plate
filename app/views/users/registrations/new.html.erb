@@ -22,7 +22,6 @@
     <%= f.input :delivery_building, required: true %>
     <%= f.input :delivery_landmark, required: true %>
     <%= f.input :delivery_city, required: true %>
-    <%= f.input :outstanding_balance, required: true %>
     <%= f.input :account_type, required: true %>
     <%= f.input :business_name, required: true %>
   </div>
@@ -33,3 +32,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+<%= render partial: "shared/customer_footer" %>

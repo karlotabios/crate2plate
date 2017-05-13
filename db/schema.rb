@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502164510) do
+ActiveRecord::Schema.define(version: 20170511184141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,16 +50,12 @@ ActiveRecord::Schema.define(version: 20170502164510) do
   create_table "order_lines", force: :cascade do |t|
     t.decimal  "subtotal_amount"
     t.decimal  "quantity"
-    t.integer  "product_id"
-    t.integer  "order_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "orders_id"
-    t.integer  "products_id"
+    t.integer  "order_id"
+    t.integer  "product_id"
     t.index ["order_id"], name: "index_order_lines_on_order_id", using: :btree
-    t.index ["orders_id"], name: "index_order_lines_on_orders_id", using: :btree
     t.index ["product_id"], name: "index_order_lines_on_product_id", using: :btree
-    t.index ["products_id"], name: "index_order_lines_on_products_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -68,29 +64,27 @@ ActiveRecord::Schema.define(version: 20170502164510) do
     t.string   "status"
     t.datetime "date_ordered"
     t.string   "comments"
-    t.integer  "account_id"
-    t.integer  "delivery_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "accounts_id"
+    t.integer  "account_id"
+    t.integer  "delivery_id"
+    t.integer  "user_id"
     t.index ["account_id"], name: "index_orders_on_account_id", using: :btree
-    t.index ["accounts_id"], name: "index_orders_on_accounts_id", using: :btree
     t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "payment_histories", force: :cascade do |t|
     t.decimal  "amount_of_payment"
     t.datetime "date_settled"
-    t.integer  "order_id"
-    t.integer  "account_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "orders_id"
-    t.integer  "accounts_id"
+    t.integer  "order_id"
+    t.integer  "account_id"
+    t.integer  "user_id"
     t.index ["account_id"], name: "index_payment_histories_on_account_id", using: :btree
-    t.index ["accounts_id"], name: "index_payment_histories_on_accounts_id", using: :btree
     t.index ["order_id"], name: "index_payment_histories_on_order_id", using: :btree
-    t.index ["orders_id"], name: "index_payment_histories_on_orders_id", using: :btree
+    t.index ["user_id"], name: "index_payment_histories_on_user_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -103,23 +97,19 @@ ActiveRecord::Schema.define(version: 20170502164510) do
 
   create_table "receipts", force: :cascade do |t|
     t.decimal  "total_amount_due"
-    t.integer  "order_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "orders_id"
+    t.integer  "order_id"
     t.index ["order_id"], name: "index_receipts_on_order_id", using: :btree
-    t.index ["orders_id"], name: "index_receipts_on_orders_id", using: :btree
   end
 
   create_table "supplies", force: :cascade do |t|
     t.string   "quantity"
     t.datetime "date_of_supply"
-    t.integer  "product_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "products_id"
+    t.integer  "product_id"
     t.index ["product_id"], name: "index_supplies_on_product_id", using: :btree
-    t.index ["products_id"], name: "index_supplies_on_products_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -153,15 +143,20 @@ ActiveRecord::Schema.define(version: 20170502164510) do
     t.decimal  "outstanding_balance"
     t.string   "account_type",           limit: 1
     t.string   "business_name"
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "order_lines", "orders", column: "orders_id"
-  add_foreign_key "order_lines", "products", column: "products_id"
-  add_foreign_key "orders", "accounts", column: "accounts_id"
-  add_foreign_key "payment_histories", "accounts", column: "accounts_id"
-  add_foreign_key "payment_histories", "orders", column: "orders_id"
-  add_foreign_key "receipts", "orders", column: "orders_id"
-  add_foreign_key "supplies", "products", column: "products_id"
+  add_foreign_key "order_lines", "orders"
+  add_foreign_key "order_lines", "products"
+  add_foreign_key "orders", "accounts"
+  add_foreign_key "orders", "deliveries"
+  add_foreign_key "orders", "users"
+  add_foreign_key "payment_histories", "accounts"
+  add_foreign_key "payment_histories", "orders"
+  add_foreign_key "payment_histories", "users"
+  add_foreign_key "receipts", "orders"
+  add_foreign_key "supplies", "products"
 end

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-	belongs_to :account
+	belongs_to :user
 	belongs_to :delivery
 	has_many :payment_histories
 	has_many :products, :through => :order_lines

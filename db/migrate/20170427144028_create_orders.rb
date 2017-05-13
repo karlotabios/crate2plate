@@ -7,6 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.datetime :date_ordered
       t.string :comments
       t.references :account
+      t.references :user
       t.references :delivery
 
       t.timestamps
