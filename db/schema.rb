@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511184141) do
+ActiveRecord::Schema.define(version: 20170516052110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170511184141) do
   create_table "accounts", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "phone_number"
     t.integer  "billing_unit_number"
     t.string   "billing_street"
     t.string   "billing_village"
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170511184141) do
     t.string   "business_name"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "phone_number"
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -64,11 +64,23 @@ ActiveRecord::Schema.define(version: 20170511184141) do
     t.string   "status"
     t.datetime "date_ordered"
     t.string   "comments"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "account_id"
     t.integer  "delivery_id"
     t.integer  "user_id"
+    t.string   "delivery_unit_number"
+    t.string   "delivery_street"
+    t.string   "delivery_village"
+    t.string   "delivery_building"
+    t.string   "delivery_landmark"
+    t.string   "delivery_city"
+    t.string   "billing_unit_number"
+    t.string   "billing_street"
+    t.string   "billing_village"
+    t.string   "billing_building"
+    t.string   "billing_landmark"
+    t.string   "billing_city"
     t.index ["account_id"], name: "index_orders_on_account_id", using: :btree
     t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -145,6 +157,7 @@ ActiveRecord::Schema.define(version: 20170511184141) do
     t.string   "business_name"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "blocked"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

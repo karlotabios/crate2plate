@@ -19,20 +19,28 @@
 			<div class="row-fluid">
 				
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-					<div class="number">854<i class="icon-arrow-up"></i></div>
-					<div class="title">sales</div>
-					<div class="footer">
+					<% if @payments.exists? %>
+						<% @sales = @payments.last(10) %>
+						<div class="boxchart">
+						<% @sales.each do |s| %>
+							<%= s.amount_of_payment %>,
+						<% end %>
+						</div>
+						<div class="number"><%= @payments.count %><i class="icon-arrow-up"></i></div>
+						<div class="title">payments</div>
+					<% else %>
+						<div class="number">0<i class="icon-fire"></i></div>
+						<div class="title">payments</div>
+					<% end %>
+					<!-- <div class="footer">
 						<a href="#"> read full report</a>
-					</div>	
+					</div>	 -->
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
-					<div class="number">123<i class="icon-arrow-up"></i></div>
-					<div class="title">orders</div>
-					<div class="footer">
+					
+					<!-- <div class="footer">
 						<a href="#"> read full report</a>
-					</div>
+					</div>	 -->
 				</div>
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
@@ -56,9 +64,9 @@
 						
 			<div class="row-fluid">
 				
-				<div class="widget blue span8" onTablet="span7" onDesktop="span8">
+				<div class="widget blue span12" onTablet="span12" onDesktop="span12">
 					
-					<h2><span class="glyphicons globe"><i></i></span> Demographics</h2>
+					<h2><span class="glyphicons globe"><i></i></span> Product Sales</h2>
 					
 					<hr>
 					
@@ -66,145 +74,28 @@
 						
 						<div class="verticalChart">
 							
+							<% @products.each do |p| %>
 							<div class="singleBar">
 							
 								<div class="bar">
 								
 									<div class="value">
-										<span>40%</span>
+										<span>
+										<% if @orderlines.exists? %>
+										<%= (@orderlines.where(product_id: p.id).quantity / @sum) %>
+										<% else %>
+										0
+										<% end %>
+										%
+										</span>
 									</div>
 								
 								</div>
 								
-								<div class="title">SB</div>
+								<div class="title"><%= p.product_name %></div>
 							
 							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>16%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">CH</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>12%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">KL</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>9%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">GRPFT</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>7%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">LMN</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>6%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">LIME</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>5%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">ORNG</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>4%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">APL</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>3%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">AU</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>1%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">N/A</div>
-							
-							</div>	
+							<% end %>
 							
 							<div class="clearfix"></div>
 							
@@ -213,40 +104,6 @@
 					</div>
 					
 				</div><!--/span-->
-
-				<div class="sparkLineStats span4 widget green" onTablet="span5" onDesktop="span4">
-
-                    <ul class="unstyled">
-                        
-                        <li><span class="sparkLineStats3"></span> 
-                            Pageviews: 
-                            <span class="number">781</span>
-                        </li>
-                        <li><span class="sparkLineStats4"></span>
-                            Pages / Visit: 
-                            <span class="number">2,19</span>
-                        </li>
-                        <li><span class="sparkLineStats5"></span>
-                            Avg. Visit Duration: 
-                            <span class="number">00:02:58</span>
-                        </li>
-                        <li><span class="sparkLineStats6"></span>
-                            Bounce Rate: <span class="number">59,83%</span>
-                        </li>
-                        <li><span class="sparkLineStats7"></span>
-                            % New Visits: 
-                            <span class="number">70,79%</span>
-                        </li>
-                        <li><span class="sparkLineStats8"></span>
-                            % Returning Visitor: 
-                            <span class="number">29,21%</span>
-                        </li>
-
-                    </ul>
-					
-					<div class="clearfix"></div>
-
-                </div><!-- End .sparkStats -->
 			
 			</div>
 			
@@ -256,7 +113,7 @@
 				<a class="quick-button metro yellow span2">
 					<i class="icon-group"></i>
 					<p>Users</p>
-					<span class="badge">237</span>
+					<span class="badge"><%= User.count %></span>
 				</a>
 				<a class="quick-button metro red span2">
 					<i class="icon-comments-alt"></i>

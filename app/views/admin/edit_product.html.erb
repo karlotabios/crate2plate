@@ -1,0 +1,107 @@
+<!-- Admin CSS -->
+<%= render partial: "shared/admin_css" %>
+<!-- HEADER -->
+<%= render partial: "shared/admin_navbar" %>
+<!-- /HEADER -->
+<!-- start: Content -->
+<!-- start: Content -->
+					<div id="content" class="span10">
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home"></i>
+								<a href="index.html">Home</a> 
+								<i class="icon-angle-right"></i>
+							</li>
+							<li>
+								<a href="supply.html">Supply and Product</a>
+								<i class="icon-angle-right"></i>
+							</li>
+							<li>
+								<a href="#">Edit Product</a>
+							</li>
+						</ul>
+						
+						<div class="row-fluid">
+							<div class="box-content">
+								<div class="container">
+									<%= simple_form_for @products) do |f| %>
+									  <%= f.error_notification %>
+
+									  <div class="form-inputs">
+									    <%= f.input :product_name, autofocus: true %>
+									    <%= f.input :price %>
+									  </div>
+
+									  <div class="form-actions">
+									    <%= f.button :submit, "Sign up", {class: "btn btn-info"} %>
+									  </div>
+									<% end %>
+									<form>
+										<h3>Edit Blueberry</h3>
+										<div class="form-group row" style="margin-left:10px;">
+											<label for="product" class="col-2 col-form-label">Product Name</label>
+											<div class="col-10">
+												<input class="form-control" type="text" value="Blueberry" id="product">
+											</div>
+										</div>
+										<div class="form-group row" style="margin-left:10px;">
+											<label for="price" class="col-2 col-form-label">Price</label>
+											<div class="col-10">
+												<input class="form-control" type="text" value="0.18" id="price">
+											</div>
+										</div>
+										<div class="form-group row" style="margin-left:10px;">
+											<label for="picture">Picture</label>
+											<input type="file" class="form-control-file" id="picture" aria-describedby="fileHelp">
+										</div>
+										<br>
+										<div class="form-group row">
+											<div class="offset-sm-2 col-sm-10" style="margin-left:40px;">
+												<button type="submit" class="btn btn-info">Submit</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>		
+
+				<!-- end: Content -->
+			</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Settings</h3>
+			</div>
+			<div class="modal-body">
+				<p>Here settings can be configured...</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+
+		<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-content">
+				<ul class="list-inline item-details">
+					<li><a href="http://themifycloud.com">Admin templates</a></li>
+					<li><a href="http://themescloud.org">Bootstrap themes</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+	
+
+<!-- FOOTER -->
+<%= render partial: "shared/admin_footer" %>
+<!-- /FOOTER -->
+
+
+<!-- Admin Scripts -->
+<%= render partial: "shared/admin_javascript" %>

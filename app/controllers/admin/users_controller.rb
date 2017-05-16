@@ -1,19 +1,56 @@
 class Admin::UsersController < ApplicationController
-	def list
-		@Customers = User.all
-		render("admin/customer.html.erb")
-	end
+	before_action :authenticate_user!
 
 	def index
-		@products = Product.all
-		render("customers/index.html.erb")
+		@users = User.all
+		@accounts = Account.all
+		render("admin/users.html.erb")
+	end
+
+	def resolve_new
+		@users = User.find(params[:id])
+		@accounts = Account.find(params[:id])
+
+		if @users.exists?
+			@paymenthistory = PaymentHistory.new()
+			render("admin/resolve.html.erb")
+		else
+			redirect_to admin_user_path
+		end
+	end
+
+	def resolve_new_unregistered
+		@users = User.find(params[:id])
+		@accounts = Account.find(params[:id])
+
+		if @accounts.exists?
+			@paymenthistory = PaymentHistory.new()
+			render("admin/resolve.html.erb")
+		else
+			redirect_to admin_user_path
+		end
+	end
+
+	def resolve_create
+		@paymenthistory = PaymentHistory.new(params[:id])
+		@paymenthistory.save
+		redirect_to admin_user_path
+	end
+
+	def block
+		@users = User.find(params[:id])
+		@users.blocked = !@users.blocked
+		@users.save
+		redirect_to admin_users_path
 	end
 
 	def create
 
 	end
 
-	def new
+	def user_sign_up
+		@users = User.new()
+		render("admin/sign_up.html.erb")
 	end
 
 	def edit
@@ -31,7 +68,10 @@ class Admin::UsersController < ApplicationController
         redirect_to class_list_path
     end
 
-    def class_list_params
-        params_require(:class_list).permit!
-    end
+    private
+
+	def permit_everything
+		params.require(:user).permit!
+		params.require(:payment_history).permit!
+	end
 end

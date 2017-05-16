@@ -1,0 +1,147 @@
+<!-- Admin CSS -->
+<%= render partial: "shared/admin_css" %>
+<!-- HEADER -->
+<%= render partial: "shared/admin_navbar" %>
+<!-- /HEADER -->
+<!-- start: Content -->
+<!-- start: Content -->
+					<div id="content" class="span10">
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home"></i>
+								<a href="index.html">Home</a> 
+								<i class="icon-angle-right"></i>
+							</li>
+							<li><a href="#">Supply and Product</a></li>
+						</ul>
+
+						<div class="col-md-12">
+							<div class="col-md-5">
+								<div class="row-fluid">
+									<center>
+									<%= link_to "New Product", admin_order_status_up_path(o.id), {:style=>'color:#fff;'} %><a href="new product.html" class="btn btn-info">New Product</a>
+								</center>
+									<br>
+									<ul class="thumbnails">
+									<% @products.each do |p| %>
+										<li class="span4">
+											<div class="thumbnail">
+											<% if p.product_name == 'Blueberry' %>
+												<%= image_tag 'prod-blueberry.jpg' %>
+											<% elsif p.product_name == 'Cherry' %>
+												<%= image_tag 'prod-cherries.jpg' %>
+											<% elsif p.product_name == 'Grapefruit' %>
+												<%= image_tag 'prod-grapefruit.jpg' %>
+											<% elsif p.product_name == 'Kale' %>
+												<%= image_tag 'prod-kale.jpg' %>
+											<% elsif p.product_name == 'Lemon' %>
+												<%= image_tag 'prod-lemon.jpg' %>
+											<% elsif p.product_name == 'Lychee' %>
+												<%= image_tag 'prod-lychee.jpg' %>
+											<% elsif p.product_name == 'Strawberry' %>
+												<%= image_tag 'prod-strawberry.jpg' %>
+											<% end %>
+												<div class="caption">
+													<center>
+														<h3><%= p.product_name %></h3>
+														<% @supply = Supply.where('product_id = ?', p.id).last %> | ₱<%= p.price %>
+														<% if !@supply.nil? %>
+														<p><%= @supply.quantity %> | ₱<%= p.price %>/kg</p>
+														<% else %>
+														<p>0 | ₱<%= p.price %>/kg</p>
+														<% end %>
+														<%= link_to(edit_admin_product_path(p.id)) do %><i class="icon-pencil"></i><% end %>
+														<%= link_to('/admin/orders/(p.id)', :method => :delete) do %><i class="icon-remove"></i><% end %>
+													</center>
+												</div>
+											</div>
+										</li>
+									<% end %>
+									</ul>
+									<center>
+										<a href="add supply.html" class="btn btn-success" style="margin-right: 5px;"><i class="icon-plus"> Add Supply</i></a>
+										<a href="reduce supply.html" class="btn btn-danger"><i class="icon-minus"> Reduce Supply</i></a>
+									</center>
+								</div>	
+							</div>	
+
+
+							<div class="col-md-6">
+								<div class="row-fluid">
+									<div class="tab-content">
+										<table class="table table-striped bootstrap-datatable datatable">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Date Replenished</th>
+													<th>Product</th>
+													<th>+</th>
+													<th>-</th>
+													<th>Admin</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td scope="row">1</td>
+													<td>2/22/17</td>
+													<td>Kale
+														<br>
+														Blueberry
+													</td>
+													<td>2 kg
+														<br>
+														1.5 kg
+													</td>
+													<td>1 kg
+													</td>
+													<td>Chuck Eh</td>
+												</tr>
+												<tr>
+													<td scope="row">2</td>
+													<td>2/23/17</td>
+													<td>Strawberry</td>
+													<td>5 kg</td>
+													<td></td>
+													<td>Chuck Eh</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal hide fade" id="myModal">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">×</button>
+								<h3>Settings</h3>
+							</div>
+							<div class="modal-body">
+								<p>Here settings can be configured...</p>
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="btn" data-dismiss="modal">Close</a>
+								<a href="#" class="btn btn-primary">Save changes</a>
+							</div>
+						</div>
+
+						<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-content">
+								<ul class="list-inline item-details">
+									<li><a href="http://themifycloud.com">Admin templates</a></li>
+									<li><a href="http://themescloud.org">Bootstrap themes</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+
+	
+
+<!-- FOOTER -->
+<%= render partial: "shared/admin_footer" %>
+<!-- /FOOTER -->
+
+
+<!-- Admin Scripts -->
+<%= render partial: "shared/admin_javascript" %>

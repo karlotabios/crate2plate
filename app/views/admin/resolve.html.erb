@@ -1,0 +1,116 @@
+<!-- Admin CSS -->
+<%= render partial: "shared/admin_css" %>
+<!-- HEADER -->
+<%= render partial: "shared/admin_navbar" %>
+<!-- /HEADER -->
+<!-- start: Content -->
+<!-- start: Content -->
+					<!-- start: Content -->
+					<div id="content" class="span10">
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home"></i>
+								<a href="index.html">Home</a> 
+								<i class="icon-angle-right"></i>
+							</li>
+							<li>
+								<a href="customer.html">Customer Accounts</a>
+								<i class="icon-angle-right"></i>
+							</li>
+							<li>
+								<a href="#">Resolve Outstanding Balance</a>
+							</li>
+						</ul>
+						
+						<div class="row-fluid">
+							<div class="box-content">
+								<div class="container">
+								<% if params[:action] != "resolve_unregistered" %>
+									<h3>Enter Payment Information</h3>
+
+									<b>Name:</b> <%= @users.first_name %> <%= @users.last_name %>
+									<br>
+										<b>Balance Due:</b> ₱<%= @users.outstanding_balance %>
+									<br>
+									<br>
+										<b>Date Due:</b> <%= Order.where('id = ?', @users.id).last.created_at.+7.days %>
+									<br>
+									<br><br>
+									<%= simple_form_for @paymenthistory do |f| %>
+										<div class="form-group row" style="margin-left:10px;">
+										  <div class="form-inputs col-10">
+										    <%= f.input :amount_of_payment, autofocus: true, { max: @users.outstanding_balance } %>
+										  </div>
+
+										  <div class="form-actions col-10">
+										    <%= f.button :submit, "Log in" %>
+										  </div>
+										</div>
+									<% end %>
+								<% else %>
+								<h3>Enter Payment Information</h3>
+
+									<b>Name:</b> <%= @accounts.first_name %> <%= @accounts.last_name %>
+									<br>
+										<b>Balance Due:</b> ₱<%= @accounts.outstanding_balance %>
+									<br>
+									<br>
+										<b>Date Due:</b> <%= Order.where('id = ?', @accounts.id).last.created_at.+7.days %>
+									<br>
+									<br><br>
+									<%= simple_form_for @paymenthistory do |f| %>
+										<div class="form-group row" style="margin-left:10px;">
+										  <div class="form-inputs col-10">
+										    <%= f.input :amount_of_payment, autofocus: true, { max: @accounts.outstanding_balance } %>
+										  </div>
+
+										  <div class="form-actions col-10">
+										    <%= f.button :submit, "Log in" %>
+										  </div>
+										</div>
+									<% end %>
+								<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>		
+
+				<!-- end: Content -->
+			</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Settings</h3>
+			</div>
+			<div class="modal-body">
+				<p>Here settings can be configured...</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+
+		<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-content">
+				<ul class="list-inline item-details">
+					<li><a href="http://themifycloud.com">Admin templates</a></li>
+					<li><a href="http://themescloud.org">Bootstrap themes</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+	
+
+<!-- FOOTER -->
+<%= render partial: "shared/admin_footer" %>
+<!-- /FOOTER -->
+
+
+<!-- Admin Scripts -->
+<%= render partial: "shared/admin_javascript" %>

@@ -12,6 +12,9 @@ SELECT * FROM users;
 INSERT INTO users (id, email, created_at, updated_at, first_name, last_name, phone_number, billing_unit_number, billing_street, billing_village, billing_building, billing_landmark, billing_city, delivery_unit_number, delivery_street, delivery_village, delivery_building, delivery_landmark, delivery_city, outstanding_balance, account_type, business_name)
 VALUES
 (1, 'karlotabios@yahoo.com', CURRENT_DATE, CURRENT_DATE, 'Karlo', 'Tabios', '09989548639', '411', 'Imelda Avenue', 'Mayfield Park Residences', 'Daroma', 'SM Hypermarket', 'Cainta', '411', 'Imelda Avenue', 'Mayfield Park Residences', 'Daroma', 'SM Hypermarket', 'Cainta', 0, 'a', 'Ateneo de Manila University');
+INSERT INTO accounts (id, created_at, updated_at, first_name, last_name, phone_number, billing_unit_number, billing_street, billing_village, billing_building, billing_landmark, billing_city, delivery_unit_number, delivery_street, delivery_village, delivery_building, delivery_landmark, delivery_city, outstanding_balance, account_type, business_name)
+VALUES
+(1, CURRENT_DATE, CURRENT_DATE, 'Karlo', 'Tabios', '09989548639', '411', 'Imelda Avenue', 'Mayfield Park Residences', 'Daroma', 'SM Hypermarket', 'Cainta', '411', 'Imelda Avenue', 'Mayfield Park Residences', 'Daroma', 'SM Hypermarket', 'Cainta', 0, 'a', 'Ateneo de Manila University');
 
 SELECT * FROM products;
 INSERT INTO products (id, product_name, price, created_at, updated_at)

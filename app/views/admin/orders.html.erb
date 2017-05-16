@@ -1,0 +1,265 @@
+<!-- Admin CSS -->
+<%= render partial: "shared/admin_css" %>
+<!-- HEADER -->
+<%= render partial: "shared/admin_navbar" %>
+<!-- /HEADER -->
+<!-- start: Content -->
+<!-- start: Content -->
+		<div id="content" class="span10">
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home"></i>
+					<a href="index.html">Home</a> 
+					<i class="icon-angle-right"></i>
+				</li>
+				<li><a href="#">Orders</a></li>
+			</ul>
+			
+			<div class="row-fluid">
+				<button type="button" class="btn btn-info">New Order</button>
+				<br><br>
+
+				<div class="col-md-6">
+					<!-- Nav tabs --><div class="card">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">Pending</a></li>
+						<li role="presentation"><a href="#accepted" aria-controls="accepted" role="tab" data-toggle="tab">Accepted</a></li>
+						<li role="presentation"><a href="#processing" aria-controls="processing" role="tab" data-toggle="tab">Processing</a></li>
+						<li role="presentation"><a href="#dispatched" aria-controls="dispatched" role="tab" data-toggle="tab">Dispatched</a></li>
+						<li role="presentation"><a href="#delivered" aria-controls="delivered" role="tab" data-toggle="tab">Delivered</a></li>
+						<li role="presentation"><a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">Cancelled</a></li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="pending">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Pending' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+												<td><span class="label label-success"><%= link_to "Move Status Up", admin_order_status_up_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-danger"><%= link_to "Cancel Order", admin_order_status_cancel_path(o.id), {:style=>'color:#fff;'} %></span></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="accepted">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Accepted' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+												<td><span class="label label-important"><%= link_to "Move Status Down", admin_order_status_down_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-success"><%= link_to "Move Status Up", admin_order_status_up_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-danger"><%= link_to "Cancel Order", admin_order_status_cancel_path(o.id), {:style=>'color:#fff;'} %></span></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="processing">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Processing' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+												<td><span class="label label-important"><%= link_to "Move Status Down", admin_order_status_down_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-success"><%= link_to "Move Status Up", admin_order_status_up_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-danger"><%= link_to "Cancel Order", admin_order_status_cancel_path(o.id), {:style=>'color:#fff;'} %></span></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="dispatched">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Dispatched' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+												<td><span class="label label-important"><%= link_to "Move Status Down", admin_order_status_down_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-success"><%= link_to "Move Status Up", admin_order_status_up_path(o.id), {:style=>'color:#fff;'} %> </span><span class="label label-danger"><%= link_to "Cancel Order", admin_order_status_cancel_path(o.id), {:style=>'color:#fff;'} %></span></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="delivered">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Delivered' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="cancelled">
+							<table class="table table-striped bootstrap-datatable datatable">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Date Ordered</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Phone No.</th>
+										<th>Email Address</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @orders.each do |o| %>
+										<% if o.status == 'Cancelled' %>
+											<% @users = User.find_by_id(o.user_id) %>
+											<tr>
+												<td scope="row"><%= o.id %></td>
+												<td><%= o.date_ordered %></td>
+												<td><%= @users.first_name %></td>
+												<td><%= @users.last_name %></td>
+												<td><%= @users.phone_number %></td>
+												<td><%= @users.email %></td>
+											</tr>
+										<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br>	
+
+			<!-- end: Content -->
+		</div><!--/#content.span10-->
+	</div><!--/fluid-row-->
+
+	<div class="modal hide fade" id="myModal">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Settings</h3>
+		</div>
+		<div class="modal-body">
+			<p>Here settings can be configured...</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+			<a href="#" class="btn btn-primary">Save changes</a>
+		</div>
+	</div>
+
+	<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-content">
+			<ul class="list-inline item-details">
+				<li><a href="http://themifycloud.com">Admin templates</a></li>
+				<li><a href="http://themescloud.org">Bootstrap themes</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+<!-- FOOTER -->
+<%= render partial: "shared/admin_footer" %>
+<!-- /FOOTER -->
+
+
+<!-- Admin Scripts -->
+<%= render partial: "shared/admin_javascript" %>

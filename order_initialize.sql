@@ -2,22 +2,22 @@ DELETE FROM order_lines;
 DELETE FROM orders;
 
 SELECT * FROM orders;
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id)
 VALUES
 (1, 100, 'COD', 'Ready', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1)
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id)
 VALUES
 (2, 200, 'COD', 'Pending', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1)
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id, delivery_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id, delivery_id)
 VALUES
 (3, 300, 'COD', 'Delivered', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1, 1)
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id)
 VALUES
 (4, 400, 'COD', 'Ready', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1)
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id)
 VALUES
 (5, 500, 'COD', 'Pending', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1)
-INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, accounts_id, delivery_id)
+INSERT INTO orders (id, amount_due, mode_of_payment, status, date_ordered, created_at, updated_at, user_id, delivery_id)
 VALUES
 (6, 600, 'COD', 'Delivered', CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, 1, 2)
 
